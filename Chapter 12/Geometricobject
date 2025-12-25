@@ -1,0 +1,21 @@
+class GeometricObject():
+    def __init__ (self, colour = 'green', filled = True):
+        self.__colour = colour 
+        self.__filled = filled
+
+    def getColour(self):
+        return self.__colour
+    
+    def setColour(self, colour):
+        self.__colour = colour
+    
+    def isFilled(self):
+        return self.__filled
+    
+    def setFilled(self, filled):
+        self.__filled = filled
+    
+    def __str__(self):
+        return "colour: " + self.__colour + \
+            " and filled: " + str(self.__filled)
+    

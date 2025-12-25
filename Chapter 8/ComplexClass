@@ -1,0 +1,75 @@
+'''
+This is the complex class. All Operations are in the format:
+a + bi where "a" is the real part and "bi" is the imaginary part.
+Answers are in the same format. 
+'''
+
+
+class Complex:
+    def __init__(self, a = 0, b = 1) -> None:
+        self.a = a 
+        self.b = b
+    def __add__(self, secondComplex):
+        term1 =  self.a + secondComplex.a
+        term2 =  self.b + secondComplex.b
+        if self.b == 0 or secondComplex.b == 0:
+            return "Input is not complex."
+        if term2 > 0:
+            return f"{str(term1)} + {str(term2)}i"
+        else: 
+            return f"{str(term1)} - {str(-term2)}i"
+    def __sub__(self, secondComplex):
+        term1 = self.a - secondComplex.a 
+        term2 = self.b - secondComplex.b
+        if self.b == 0 or secondComplex.b == 0:
+            return "Input is not complex."
+        elif term2 > 0:
+            return f"{str(term1)} + {str(term2)}i"
+        
+        else:
+            return f"{str(term1)} - {str(-term2)}i"
+    
+    def __mul__(self, secondComplex):
+        term1 = self.a * secondComplex.a - self.b * secondComplex.b
+        term2 = self.b * secondComplex.a + self.a * secondComplex.b
+        if self.b == 0 or secondComplex.b == 0:
+            return "Input is not complex."
+        elif term2 < 0:
+            return f"{str(term1)} - {str(-term2)}i" 
+        
+        else:
+            return f"{str(term1)} + {str(term2)}i"
+
+    def __truediv__(self, secondComplex):
+        term1 = (self.a * secondComplex.a + self.b * secondComplex.b) / (secondComplex.a ** 2 + secondComplex.b ** 2)
+        term2 = (self.b * secondComplex.a - self.a * secondComplex.b) / (secondComplex.a ** 2 + secondComplex.b ** 2)
+        if self.b == 0 or secondComplex.b == 0:
+            return "Input is not complex."
+        elif term2 < 0:
+            return f"{str(term1)} - {str(-term2)}i"
+        else:
+            return f"{str(term1)} + {str(term2)}i"        
+
+    def __abs__(self):
+        return (self.a ** 2 + self.b ** 2) ** 0.5
+
+    def getRealPart(self):
+        return self.a 
+    def getImaginaryPart(self):
+        return f"{self.b}i" 
+    def __str__(self):
+        return f"({self.a} + {self.b}i)"
+
+def main():
+    a, b = eval(input("Enter the first complex number: "))
+    c, d = eval(input("Enter the second complex number: ")) 
+    c1 = Complex(a, b)
+    c2 = Complex(c, d)
+    print(f"{c1} + {c2} = {c1 + c2}")
+    print(f"{c1} - {c2} = {c1 - c2}")
+    print(f"{c1} * {c2} = {c1 * c2}")
+    print(f"{c1} / {c2} = {c1 / c2}")
+    print(f"|{c1}| = {abs(c1)}")
+    print()
+main()
+    

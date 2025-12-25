@@ -8,6 +8,8 @@ Although these programs should work, _I hold no responsibility on the correctnes
 Notes: 
 - My teacher tells me that code under 25000 lines of code doesn't require strict adherence to OOP, Classes, Inheritance, and such practices. I have therefore not heavily used these concepts.
 - I also don't follow the strict pep8 (or any such similar-) formatting regulations.
+- Forgive the diordered files within the chapters.
+- I haven't solved _all_ the problems, although I have solved most of the harder ones (feel free to let me know about any inconsistencies within my code, esp. for the harder ones)
 
 
 Thanks, and good luck with your Python!

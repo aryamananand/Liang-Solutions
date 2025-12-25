@@ -1,0 +1,80 @@
+import turtle as t
+import random
+
+# LIST FOR LATTICES
+lst = []
+for i in range(17):
+    lst.append([])
+    for j in range(17):
+        lst[i].append(False)
+
+
+# Code for grey grid
+t.tracer(0)
+t.color('gray')
+for i in range(16):
+    t.penup()
+    t.goto(0,i*10)
+    t.pendown()
+    t.right(90)
+    t.forward(160)
+    t.left(90)
+
+for j in range(16):
+    t.penup()
+    t.goto(j*7,0)
+    t.pendown()
+    t.forward(128)
+
+t.color('red')
+t.tracer(0)
+
+# CODE TO AVOID lattice
+
+
+x_i = 8
+y_i = 8
+
+lst[x_i][y_i] == True   # start point
+
+
+loop = True
+while loop == True:
+    var = 1
+    direction = random.randint(1,4)
+    if direction == 1:      # upward 
+        if y_i < 16 and lst[x_i][y_i+1] == False:
+            t.forward(10)
+            lst[x_i-1][y_i] = True
+            var = 0
+            y_i += 1
+    
+    if direction == 2:    # rightward 
+        if x_i < 16 and lst[x_i+1][y_i] == False:
+            t.right(90)
+            t.forward(10)
+            t.left(90)
+            lst[x_i+1][y_i] = True
+            var = 0
+            x_i += 1
+
+    if direction == 3:    # downward
+        if y_i >= 1 and lst[x_i][y_i-1] ==  False:
+            t.right(180)
+            t.forward(10)
+            t.right(180)
+            lst[x_i][y_i-1] = True
+            var = 0
+            y_i -= 1
+
+    else:   # leftward
+        if x_i >= 1 and lst[x_i-1][y_i] == False:
+            t.left(90)
+            t.forward(10)
+            t.right(90)
+            var = 0
+            x_i -= 1
+        
+    if var != 0:
+        loop = False
+

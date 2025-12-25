@@ -1,0 +1,20 @@
+import turtle as t
+
+t.penup()
+t.goto(50,50)
+t.pendown()
+t.circle(50)
+t.penup()
+t.goto(50,-50)
+t.pendown()
+t.circle(50)
+t.penup()
+t.goto(-50,50)
+t.pendown()
+t.circle(50)
+t.penup()
+t.goto(-50,-50)
+t.pendown()
+t.circle(50)
+
+t.done()
